@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Special Question For You ❤️</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts for cute typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Background Music (Plays automatically on first click) -->
+  <audio id="bg-music" loop></audio>
+
+  <!-- Floating Background Emojis & Cute Love Memes -->
+  <div id="bg-decorations" class="bg-decorations"></div>
+
+  <div class="card-container">
+    <!-- Screen 1: Welcome Screen -->
+    <div id="screen-1" class="screen active">
+      <h1 class="cute-title">I have made something for you!</h1>
+      <div class="heart-icon">💖</div>
+      <p>Do you wanna see it?</p>
+      <div class="btn-group">
+        <button class="yes-btn" onclick="startExperience()">YES ❤️</button>
+        <button class="no-btn" onclick="nextScreen(4)">NO ❌</button>
+      </div>
+    </div>
+
+    <!-- Screen 2: Gift Box Selection Screen -->
+    <div id="screen-2" class="screen">
+      <h2>Each surprise has something for you.</h2>
+      <p class="instruction-text">CLICK ON ONE! ✨</p>
+      <div class="gifts-grid">
+        <div class="gift-box" onclick="openGift('memories')">📸<br>Memories</div>
+        <div class="gift-box" onclick="openGift('reasons')">💌<br>Surprise</div>
+        <div class="gift-box" onclick="openGift('proposal')">💍<br>Question</div>
+      </div>
+      <button class="back-btn" onclick="nextScreen(1)">Back</button>
+    </div>
+
+    <!-- Screen 3: Dynamic Content Display Screen -->
+    <div id="screen-3" class="screen">
+      <div id="gift-content">
+        <!-- Dynamic content will load here via JavaScript -->
+      </div>
+      <button class="back-btn" onclick="nextScreen(2)">Back to Surprises</button>
+    </div>
+
+    <!-- Screen 4: "How Dare You" / Playful Rejection Screen -->
+    <div id="screen-4" class="screen">
+      <h2>HOW DARE YOU!!!!!!!!!! 😤</h2>
+      <p>You don't have a choice! Try again 😉</p>
+      <button class="back-btn" onclick="nextScreen(1)">Try Again</button>
+    </div>
+    <!-- Screen 4: "How Dare You" / Playful Rejection Screen for Welcome Page -->
+    <div id="screen-4" class="screen">
+      <h2>HOW DARE YOU!!!!!!!!!! 😤</h2>
+      <p>You don't have a choice! Try again 😉</p>
+      <button class="back-btn" onclick="nextScreen(1)">Try Again</button>
+    </div>
+
+    <!-- Screen 5: Wrong Answer Screen for Proposal Page -->
+    <div id="screen-5" class="screen">
+      <h2>Hawwww that's the wrong answer! 😤💔</h2>
+      <p>Think again and click the right button 🥺</p>
+      <button class="yes-btn" onclick="openGift('proposal')">Try Again</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

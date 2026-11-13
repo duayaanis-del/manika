@@ -1,0 +1,304 @@
+/* General Reset & Background Theme */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #d8a7b1; /* Light wine background */
+  background-image: radial-gradient(#722f37 15%, transparent 16%),
+                    radial-gradient(#722f37 15%, transparent 16%);
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px;
+  font-family: 'Quicksand', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Central Card Layout */
+.card-container {
+  background: #ffffff;
+  border: 4px dashed #ff4d6d;
+  padding: 40px 30px;
+  border-radius: 25px;
+  text-align: center;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 10;
+  transition: width 0.25s ease, padding 0.25s ease;
+}
+
+/* Slightly wider card when Screen 3 is active so all 5 vertical pics fit nicely */
+.card-container:has(#screen-3.active) {
+  width: 520px;
+  padding: 25px 25px;
+}
+
+/* Screen Management */
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+}
+
+/* Typography & Elements */
+.cute-title {
+  font-size: 28px;
+  color: #ff4d6d;
+  margin-bottom: 15px;
+}
+
+.heart-icon {
+  font-size: 50px;
+  margin: 20px 0;
+  animation: heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+p {
+  color: #444;
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+
+.instruction-text {
+  font-weight: 700;
+  color: #ff4d6d;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+/* GIFs inside the main card */
+.card-gif {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 18px;
+  margin: 10px auto 15px;
+  display: block;
+  border: 3px solid #ffb3c1;
+  box-shadow: 0 4px 12px rgba(255, 77, 109, 0.2);
+}
+
+/* Buttons Styling */
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.yes-btn {
+  background-color: #ff4d6d;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(255, 77, 109, 0.3);
+  transition: transform 0.2s;
+}
+
+.yes-btn:hover {
+  transform: scale(1.08);
+}
+
+.no-btn, .back-btn {
+  background-color: #e0e0e0;
+  color: #333;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.no-btn:hover, .back-btn:hover {
+  transform: scale(1.08);
+}
+
+/* Gift Boxes Grid */
+.gifts-grid {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.gift-box {
+  background: #fff0f3;
+  border: 2px solid #ffb3c1;
+  padding: 15px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  color: #ff4d6d;
+  width: 85px;
+  transition: all 0.2s ease;
+}
+
+.gift-box:hover {
+  background: #ff4d6d;
+  color: white;
+  transform: translateY(-5px);
+  border-color: #ff4d6d;
+}
+
+/* Dynamic Content Box */
+#gift-content {
+  max-height: 62vh;
+  overflow-y: auto;
+  padding-right: 6px;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+#gift-content h3 {
+  color: #ff4d6d;
+  margin-top: 0;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+#gift-content p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+/* Custom cute pink scrollbar */
+#gift-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+#gift-content::-webkit-scrollbar-track {
+  background: #fff0f3;
+  border-radius: 10px;
+}
+
+#gift-content::-webkit-scrollbar-thumb {
+  background: #ffb3c1;
+  border-radius: 10px;
+}
+
+#gift-content::-webkit-scrollbar-thumb:hover {
+  background: #ff4d6d;
+}
+
+/* Memories Photo Gallery - Vertical & Fits on Screen */
+.memories-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.polaroid-card {
+  width: 28%; /* Fits 3 vertical cards on row 1, and 2 centered on row 2 */
+  background: #fff0f3;
+  border: 1.5px solid #ffb3c1;
+  border-radius: 10px;
+  padding: 5px 5px 6px;
+  text-align: center;
+  box-shadow: 0 3px 8px rgba(255, 77, 109, 0.12);
+}
+
+.polaroid-card img {
+  width: 100%;
+  aspect-ratio: 3 / 4;   /* Vertical portrait ratio */
+  object-fit: contain;   /* Shows the entire photo with zero cropping */
+  background: #ffffff;
+  border-radius: 7px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.polaroid-card p {
+  margin: 0 !important;
+  font-size: 10px !important;
+  line-height: 1.2 !important;
+  font-weight: 700;
+  color: #722f37 !important;
+  text-align: center;
+}
+
+/* Background Floating Layer */
+.bg-decorations {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Floating Emojis */
+.bg-emoji {
+  position: absolute;
+  font-size: 28px;
+  opacity: 0.8;
+  animation: floatSlow 6s ease-in-out infinite;
+  user-select: none;
+}
+
+/* Cute Love Meme / Sticker Badges */
+.bg-meme {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.88);
+  border: 2px dashed #722f37;
+  border-radius: 15px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #722f37;
+  box-shadow: 0 4px 12px rgba(114, 47, 55, 0.15);
+  text-align: center;
+  max-width: 135px;
+  animation: floatSlow 7s ease-in-out infinite;
+  user-select: none;
+}
+
+.bg-meme span {
+  display: block;
+  font-size: 22px;
+  margin-bottom: 3px;
+}
+
+/* Floating Background GIF Stickers */
+.bg-gif {
+  position: absolute;
+  width: 95px;
+  height: 95px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 3px solid #ffffff;
+  box-shadow: 0 6px 15px rgba(114, 47, 55, 0.22);
+  animation: floatSlow 6.5s ease-in-out infinite;
+  user-select: none;
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(var(--rot, 0deg));
+  }
+  50% {
+    transform: translateY(-12px) rotate(var(--rot, 0deg));
+  }
+}
